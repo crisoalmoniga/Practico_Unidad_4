@@ -1,12 +1,3 @@
 ﻿  Juego.h
-D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Crosshair\Juego.h(30,50): warning C4244: 'argumento': conversión de 'T' a 'float'; posible pérdida de datos
-          with
-          [
-              T=int
-          ]
-D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Crosshair\Juego.h(30,38): warning C4244: 'argumento': conversión de 'T' a 'float'; posible pérdida de datos
-          with
-          [
-              T=int
-          ]
-  Crosshair.vcxproj -> D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Crosshair\x64\Debug\Crosshair.exe
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Crosshair\Juego.h(30,29): error C2065: '_crossTex': identificador no declarado
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Crosshair\Juego.h(31,9): error C2065: '_crossSprite': identificador no declarado

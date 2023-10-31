@@ -26,8 +26,9 @@ int main() {
         }
 
 
-        sf::Vector2i mousePos = sf::Mouse::getPosition();
-        crosshair.Posicionar(mousePos.x, mousePos.y);
+        // Configurar el origen en el centro del sprite NO SE CENTRAAAAAAAA
+        sf::Vector2u size = _crossTex.getSize();
+        _crossSprite.setOrigin(size.x / 1.0f, size.y / 1.0f);
 
         window.clear();
 
