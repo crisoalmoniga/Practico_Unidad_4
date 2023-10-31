@@ -1,14 +1,12 @@
 #pragma once
-#include "stdafx.h"
+#include <SFML/Graphics.hpp>
 #include "PlayerCrosshair.h"
 
 int main() {
-
     sf::RenderWindow window(sf::VideoMode(800, 600), "Fondo de Videojuego");
 
-    // Cargar la textura del fondo, siempre actualizar desde la ruta específica
+    // Cargar la textura del fondo
     sf::Texture fondoTexture;
-
     if (!fondoTexture.loadFromFile("D:\\Universidad - Cris\\Videojuegos\\Universidad del Litoral\\MAVI\\Practico_Unidad_3\\Unidad3_Assets\\Unidad3_Assets\\fondo.jpg")) {
         return 1; // Si la ruta falla, tira error 1.
     }
@@ -40,4 +38,3 @@ int main() {
 
     return 0;
 }
-
