@@ -1,0 +1,14 @@
+﻿  main.cpp
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Drag\Drag\main.cpp(36,103): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Drag\Drag\main.cpp(36,81): warning C4244: 'argumento': conversión de 'int' a 'T'; posible pérdida de datos
+          with
+          [
+              T=float
+          ]
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Drag\Drag\main.cpp(63,34): error C2039: "Negro": no es un miembro de "sf::Color"
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\SFML-2.5.1\include\SFML\Graphics\Shader.hpp(43,7): message : vea la declaración de 'sf::Color'
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Drag\Drag\main.cpp(63,34): error C2065: 'Negro': identificador no declarado
