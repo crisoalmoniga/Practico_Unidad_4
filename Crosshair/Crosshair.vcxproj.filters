@@ -18,7 +18,7 @@
     <ClCompile Include="Juego.h">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
-    <ClCompile Include="Mira.h">
+    <ClCompile Include="PlayerCrosshair.h">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

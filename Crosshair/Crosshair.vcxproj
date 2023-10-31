@@ -131,7 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Juego.h" />
-    <ClCompile Include="Mira.h" />
+    <ClCompile Include="PlayerCrosshair.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h" />
