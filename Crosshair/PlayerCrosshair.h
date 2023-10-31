@@ -16,4 +16,8 @@ public:
     void Dibujar(sf::RenderWindow* wnd) {
         wnd->draw(_crossSprite);
     }
+
+    void Posicionar(float x, float y) {
+        _crossSprite.setPosition(x, y);
+    }
 };

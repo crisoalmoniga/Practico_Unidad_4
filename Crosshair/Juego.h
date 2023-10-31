@@ -25,6 +25,10 @@ int main() {
             }
         }
 
+
+        sf::Vector2i mousePos = sf::Mouse::getPosition();
+        crosshair.Posicionar(mousePos.x, mousePos.y);
+
         window.clear();
 
         // Dibujar el fondo en toda la ventana
