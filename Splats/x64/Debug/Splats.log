@@ -1,0 +1,6 @@
+﻿  Main.cpp
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Splats\Main.cpp(30,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Splats\Main.cpp(30,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Splats\Main.cpp(37,48): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Splats\Main.cpp(37,45): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+  Splats.vcxproj -> D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Splats\x64\Debug\Splats.exe
