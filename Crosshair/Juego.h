@@ -7,7 +7,7 @@ int main() {
 
     // Cargar la textura del fondo
     sf::Texture fondoTexture;
-    if (!fondoTexture.loadFromFile("D:\\Universidad - Cris\\Videojuegos\\Universidad del Litoral\\MAVI\\Practico_Unidad_3\\Unidad3_Assets\\Unidad3_Assets\\fondo.jpg")) {
+    if (!fondoTexture.loadFromFile("D:\\Universidad - Cris\\Videojuegos\\Universidad del Litoral\\MAVI\\Practica_Unidad_4\\Practico_Unidad_4\\Crosshair\\fondo.jpg")) {
         return 1; // Si la ruta falla, tira error 1.
     }
 
