@@ -1,2 +1,8 @@
 ﻿  Main.cpp
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Clickale\Main.cpp(19,49): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Clickale\Main.cpp(19,35): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Clickale\Main.cpp(37,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Clickale\Main.cpp(59,36): warning C4305: 'argumento': truncamiento de 'double' a 'float'
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Clickale\Main.cpp(70,74): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Clickale\Main.cpp(70,55): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
   Clickale.vcxproj -> D:\Universidad - Cris\Videojuegos\Universidad del Litoral\MAVI\Practica_Unidad_4\Practico_Unidad_4\Clickale\x64\Debug\Clickale.exe

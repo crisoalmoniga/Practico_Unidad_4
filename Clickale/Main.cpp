@@ -1,84 +1,114 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
 
+//Hay varias cosas que investigué y busqué con GPT para hacerlas ya que no sabia como hacerlas, el srand y el método para controlar la aparición de los enemigos por ejemplo.
+
+using namespace sf;
+
+class Et {
+
+public:
+
+    // Constructor de la clase "Et"
+    Et(Texture& texture, float scale) {
+        sprite.setTexture(texture);
+        sprite.setScale(scale, scale);
+        sprite.setPosition(rand() % 800, rand() % 800);  // Posición inicial aleatoria
+        temporizador = Clock();  // Inicializa el temporizador
+        vivo = true;
+    }
+
+
+    void update() {
+        if (vivo && temporizador.getElapsedTime().asSeconds() > 0.9) {
+        }
+    }
+
+    Sprite sprite;  // Sprite del enemigo
+    bool vivo;  // Indica si el enemigo está vivo o muerto
+    Clock temporizador;  // Temporizador para la lógica del enemigo
+};
 
 int main() {
-    // Crear la ventana
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Clickable");
 
-    // Cargar la textura del fondo
-    sf::Texture fondoTexture;
-    if (!fondoTexture.loadFromFile("fondo.jpg")) {
-        return 1; // Si la carga del fondo falla, tira error 1.
-    }
+    srand(time(0));
 
-    // Crear un sprite para el fondo
-    sf::Sprite fondoSprite(fondoTexture);
+    Texture texture;
+    Texture miraTextura;
+    Texture fondoTexture;
 
-    // Cargar la textura del crosshair
-    sf::Texture crosshairTexture;
-    if (!crosshairTexture.loadFromFile("crosshair.png")) {
-        return 1; // Si la carga del crosshair falla, tira error 1.
-    }
+ 
+    texture.loadFromFile("et.png");  // Textura del enemigo
+    miraTextura.loadFromFile("crosshair.png");  // Textura del cursor
+    fondoTexture.loadFromFile("fondo.jpg");  // Textura del fondo - No entiendo porque no funciona, copié la modalidad del ejercicio de la unidad 3 pero no me funca - SOLUCIONADO: FALTABA LA DECLARACION DEL SPRITE
 
-    // Crear un sprite para el crosshair y ajustar su punto de origen al centro
-    sf::Sprite crosshairSprite(crosshairTexture);
-    crosshairSprite.setOrigin(crosshairSprite.getLocalBounds().width / 2, crosshairSprite.getLocalBounds().height / 2);
+    // Configuración del sprite de la mira
+    Sprite miraSprite(miraTextura);
+    miraSprite.setScale(0.2f, 0.2f);  // Escala el cursor
+    miraSprite.setOrigin(miraSprite.getGlobalBounds().width / 2, miraSprite.getGlobalBounds().height / 2);
 
-    // Cargar la textura del ET
-    sf::Texture etTexture;
-    if (!etTexture.loadFromFile("et.png")) {
-        return 1; // Si la carga de "et.png" falla, tira error 1.
-    }
+    RenderWindow App(VideoMode(900, 900), "Clickale");
 
-    // Crear un sprite para ET y establecer su posición inicial
-    sf::Sprite etSprite(etTexture);
-    etSprite.setPosition(5, 5);
+    std::vector<Et> etList;  // Vector para almacenar los enemigos
+    int etMuertos = 0;  // Contador de enemigos derrotados
 
-    // Escalar el sprite ET a 100x100 píxeles
-    etSprite.setScale(100.0f / etSprite.getGlobalBounds().width, 100.0f / etSprite.getGlobalBounds().height);
+    Clock etAppearTimer;  // Temporizador para la aparición de enemigos
+    Time etDisappearTime = seconds(0.9);  // Tiempo entre apariciones de enemigos
 
+    Sprite fondoSprite(fondoTexture);
 
-
-    while (window.isOpen()) {
-        sf::Event event;
-        while (window.pollEvent(event)) {
-            if (event.type == sf::Event::Closed) {
-                window.close();
+    while (App.isOpen()) {
+        Event event;
+        while (App.pollEvent(event)) {
+            if (event.type == Event::Closed) {
+                App.close();
             }
-
-            // Verificar si se hizo clic en "et.png"
-            if (event.type == sf::Event::MouseButtonPressed) {
-                if (event.mouseButton.button == sf::Mouse::Left) {
-                    // Obtener la posición del clic del mouse y convertirla a coordenadas
-                    sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
-                    sf::Vector2f worldMousePosition = window.mapPixelToCoords(mousePosition);
-
-                    // Verificar si el clic se realizó dentro de la región de "et.png"
-                    if (etSprite.getGlobalBounds().contains(worldMousePosition)) {
-                        // Ocultar "et.png" al hacer clic sobre él
-                        etSprite.setColor(sf::Color(0, 0, 0, 0)); // Establece el alpha a 0 para hacerlo transparente
-
+            else if (event.type == Event::MouseMoved) {
+                miraSprite.setPosition(event.mouseMove.x, event.mouseMove.y);
+            }
+            else if (event.type == Event::MouseButtonPressed && event.mouseButton.button == Mouse::Left) {
+                // Comprueba si se hizo clic en un enemigo
+                for (Et& et : etList) {
+                    if (et.vivo && et.sprite.getGlobalBounds().contains(miraSprite.getPosition())) {
+                        et.vivo = false;  // El enemigo muere
+                        etMuertos++;  // Contador de enemigos muertos, suma de a uno
                     }
                 }
             }
         }
 
-        // Obtener la posición del puntero del mouse en relación a la ventana y mover el crosshair
-        sf::Vector2i mousePosition = sf::Mouse::getPosition(window);
-        crosshairSprite.setPosition(static_cast<sf::Vector2f>(mousePosition));
+        // Controlador de aparicion de enemigos
+        if (etAppearTimer.getElapsedTime() >= etDisappearTime) {
+            etList.emplace_back(texture, 0.4f);  // Añade un nuevo enemigo al vector
+            etAppearTimer.restart();  // Reinicia el temporizador
+        }
 
-        window.clear();
+        App.clear();
 
-        // Dibujar el fondo en toda la ventana
-        window.draw(fondoSprite);
+        // Dibuja el fondo en toda la ventana
+        App.draw(fondoSprite);
 
-        // Dibujar el "et.png"
-        window.draw(etSprite);
+        // Dibuja los enemigos vivos en la ventana
+        for (Et& et : etList) {
+            if (et.vivo) {
+                et.update();  // Actualiza la lógica del enemigo
+                et.sprite.setScale(0.1f, 0.1f);  // Escala el sprite del enemigo
+                App.draw(et.sprite);  // Dibuja el enemigo
+            }
+        }
 
-        // Dibujar el crosshair
-        window.draw(crosshairSprite);
+        // Dibuja el cursor
+        App.draw(miraSprite);
 
-        window.display();
+        App.display();
+
+        // Cierra la ventana si se derrotaron 5 enemigos
+        if (etMuertos >= 5) {
+            App.close();
+        }
     }
 
     return 0;
